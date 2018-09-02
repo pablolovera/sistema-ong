@@ -1,0 +1,2 @@
+import './cadastros'
+import './relatorios'

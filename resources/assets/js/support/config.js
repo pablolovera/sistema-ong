@@ -1,0 +1,1 @@
+export const URL_BASE = $('meta[name="domain"]').attr('content')

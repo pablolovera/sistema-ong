@@ -1,0 +1,11 @@
+.nav-ong > li.active > a,
+.nav-ong > li.active > a:focus,
+.nav-ong > li.active > a:hover,
+.nav-ong > li > a:hover {
+  color: rgb(0, 142, 96) !important;
+  background-color: #f6f7fa !important;
+}
+.nav-ong > li > a {
+  font-size: 18px;
+  color: #f6f7fa !important;
+}

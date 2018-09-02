@@ -1,0 +1,5 @@
+import './animais'
+import './especies'
+import './lar-temporario'
+import './pessoas'
+import './racas'
