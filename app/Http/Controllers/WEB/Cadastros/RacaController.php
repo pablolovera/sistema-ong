@@ -52,6 +52,7 @@ class RacaController extends Controller
         $dados['route_back']    = route('cadastros.raca.index');
         $dados['route']         = route('cadastros.raca.store');
         $dados['title']         = 'Cadastro de Raças';
+        $dados['dados']         = [];
 
         return view('cadastros.raca', $dados);
     }

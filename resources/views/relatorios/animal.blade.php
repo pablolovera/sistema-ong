@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
 
-        <div class="row mt-4">
+        <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10 col-xl-10">
                 <legend>Relatório De Animais</legend>
             </div>
@@ -35,8 +35,8 @@
         @endphp
 
         <div class="collapse {{ $collapsed }}" id="collapseFilters">
-            <div class="card mt-3">
-                <div class="card-body">
+            <div class="panel">
+                <div class="panel-body">
                     <form id="form-search-relatorio-agendamento" method="post" action="{{ route('relatorios.animal.search') }}">
                         @include('layouts.partials.form-fields-safe')
 
@@ -122,20 +122,8 @@
                                     </div>
                                 </div>
 
-                                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-                                    <label for="">Publicados?</label>
-                                    <div class="form-group">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" name="sim_publicado" id="sim_publicado" {{ empty($dados) ? (old('sim_publicado') == 'on' ? 'checked' : '' ) : ($dados->sim_publicado == 'on' ? 'checked' : '' ) }}> Sim
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" name="nao_publicado" id="nao_publicado" {{ empty($dados) ? (old('nao_publicado') == 'on' ? 'checked' : '' ) : ($dados->nao_publicado == 'on' ? 'checked' : '' ) }}> Não
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-3">
-                                    <button type="submit" class="btn btn-outline-primary pull-right mt-3"><i class="fa fa-search"></i> Buscar</button>
+                                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                    <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-search"></i> Buscar</button>
                                 </div>
                             </div>
                         </div>
@@ -147,8 +135,8 @@
         <hr class="visible-xs">
 
 
-        <div class="card mt-2">
-            <div class="card-body">
+        <div class="panel">
+            <div class="panel-body">
                 <div id="gridRelatorioAnimais" class="autoheight" data-route_list="{{ json_encode($rel_data) }}"></div>
             </div>
         </div>

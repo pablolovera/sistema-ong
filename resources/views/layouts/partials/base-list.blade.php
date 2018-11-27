@@ -5,8 +5,8 @@
 
         @include('layouts.partials.top-list')
 
-        <div class="card mt-4">
-            <div class="card-body">
+        <div class="panel panel-default">
+            <div class="panel-body">
                 <div id="{{ $id_grid }}" class="autoheight" data-route_list="{{ $route_list }}"></div>
             </div>
         </div>

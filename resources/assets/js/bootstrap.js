@@ -1,5 +1,5 @@
 
-window._ = require('lodash');
+// window._ = require('lodash');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -53,3 +53,31 @@ if (token) {
 //     cluster: 'mt1',
 //     encrypted: true
 // });
+
+
+import 'devextreme/bundles/modules/core'
+import 'devextreme/bundles/modules/data'
+import 'devextreme/ui/data_grid/ui.data_grid.js'
+import 'devextreme/ui/check_box.js'
+import 'devextreme/ui/date_box/ui.date_box.js'
+import 'devextreme/ui/text_box/text_box'
+import 'devextreme/ui/select_box.js'
+import 'devextreme/ui/drop_down_box'
+import 'devextreme/ui/tree_list/ui.tree_list'
+import 'devextreme/ui/load_panel.js'
+import 'devextreme/ui/toast.js'
+import 'devextreme/ui/tag_box.js'
+import 'devextreme/ui/switch.js'
+import 'devextreme/ui/file_uploader.js'
+import 'devextreme/ui/form.js'
+
+// import 'devextreme/viz/chart.js'
+// import 'devextreme/viz/linear_gauge.js'
+// import 'devextreme/viz/pie_chart.js'
+
+import deMessages from '../i18n/pt-BR.dx.json'
+DevExpress.localization.loadMessages(deMessages)
+
+require('./components')
+require('./pages')
+require('./features')

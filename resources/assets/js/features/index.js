@@ -1,6 +1,7 @@
 import fields from './form-fields'
 import loader from '../components/dx/loader'
 import toastr from '../components/dx/toast'
+import './especie'
 
 $(function() {
 

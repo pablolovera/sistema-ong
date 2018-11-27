@@ -3,7 +3,7 @@
 @section('form-fields')
 
     <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
             <div class="form-group">
                 <label class="control-label obrigatorio" for="nome">Nome</label>
                 <div class="textBox form-control {{ $errors->has('nome') ? ' is-invalid' : '' }}"
@@ -16,26 +16,24 @@
         <div class="col-xs-12 col-sm-5 col-md-6 col-lg-6 col-xl-6">
             <label for="pessoa_id" class="obrigatorio"> Responsável</label>
             <div class="form-group">
-                <div class="row">
-                    <div class="col-xl-10 padding-right-0">
-                        <div class="selectBox form-control no-radius-right {{ $errors->has('pessoa_id') ? 'is-invalid' : '' }}"
+                <div class="col-xs-11 col-sm-10 col-md-11 col-lg-11 col-xl-11">
+                    <div class="row">
+                        <div class="selectBox{{ $errors->has('pessoa_id') ? 'is-invalid' : '' }}"
                              id="pessoa_id"
                              data-selecteds="{{ empty($dados) ? old('pessoa_id') : $dados->pessoa_id }}"
                              data-value_id="id"
                              data-value_desc="nome"
                              data-data_source="{{ json_encode($pessoas) }}"></div>
                     </div>
-                    <div class="col-xl-1">
-                        <div class="row">
-                            <button class="btn btn-outline-secondary btn-plus-group" id="btn_add_pessoa" type="button"><i class="fa fa-plus"></i></button>
-                        </div>
-                    </div>
+                </div>
+                <div class="col-xs-1 col-sm-2 col-md-1 col-lg-1 col-xl-1 no-padding">
+                    <button class="btn btn-default btn-block" id="btn_add_pessoa" type="button"><i class="fa fa-plus"></i></button>
                 </div>
 
                 @include('layouts.partials.helper-error', ['field' => 'pessoa_id'])
             </div>
         </div>
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 col-xl-2">
+        <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 col-xl-2">
             <div class="form-group">
                 <label class="control-label obrigatorio" for="status">Status</label>
                 <div class="selectBox form-control" id="status"
@@ -125,7 +123,7 @@
     <legend>Capacidades</legend>
 
     <div class="row">
-        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 col-xl-7">
+        <div class="col-xs-12 col-sm-7 col-md-9 col-lg-9 col-xl-9">
             <div class="form-group validate-especie_id">
                 <label for="especie_id" class="obrigatorio"> Espécie</label>
                 <div class="selectBox form-control especie_id {{ $errors->has('capacidades.*.especie_id') ? ' is-invalid' : '' }}" id="especie_id"
@@ -136,16 +134,16 @@
             </div>
             @include('layouts.partials.helper-error', ['field' => 'capacidades.*.especie_id'])
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+        <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2 col-xl-2">
             <div class="form-group validate-capacidade">
                 <label for="capacidade" class="obrigatorio"> Capacidade</label>
                 <div class="textBox form-control capacidade {{ $errors->has('capacidades.*.capacidade') ? ' is-invalid' : '' }}" id="capacidade"></div>
             </div>
             @include('layouts.partials.helper-error', ['field' => 'capacidades.*.capacidade'])
         </div>
-        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-1">
+        <div class="col-xs-12 col-sm-2 col-md-1 col-lg-1 col-xl-1">
             <label for=""></label>
-            <button type="button" class="btn btn-secondary btn-block" id="add_lar_temporario_capacidade"><i class="fa fa-plus"></i></button>
+            <button type="button" class="btn btn-primary btn-block" id="add_lar_temporario_capacidade"><i class="fa fa-plus"></i></button>
         </div>
     </div>
 

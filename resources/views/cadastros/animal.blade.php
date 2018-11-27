@@ -5,47 +5,41 @@
     <div class="row">
 
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3">
-            <label for="raca_id" class="obrigatorio"> Raça</label>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-xs-2 col-xl-9 padding-right-0">
-                        <div class="selectBox form-control no-radius-right {{ $errors->has('raca_id') ? 'is-invalid' : '' }}"
+            <label for="raca_id" class="control-label obrigatorio"> Raça</label>
+            <div class="form-group raca_id">
+                <div class="col-xs-9 col-sm-10 col-md-10 col-lg-10 col-xl-10">
+                    <div class="row">
+                        <div class="selectBox {{ $errors->has('raca_id') ? 'is-invalid' : '' }}"
                              id="raca_id"
-                             data-selecteds="{{ empty($dados) ? old('raca_id') : $dados->raca_id }}"
+                             data-selecteds="{{ handleSelected($dados, 'raca_id') }}"
                              data-value_id="id"
                              data-value_desc="nome"
                              data-data_source="{{ route('cadastros.raca.list') }}"></div>
                     </div>
-                    <div class="col-xs-1 col-xl-1">
-                        <div class="row">
-                            <button class="btn btn-outline-secondary btn-plus-group" data-toggle="modal" data-target="#raca_modal" type="button"><i class="fa fa-plus"></i></button>
-                        </div>
-                    </div>
                 </div>
-
+                <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 no-padding">
+                    <button class="btn btn-default btn-block" data-toggle="modal" data-target="#raca_modal" type="button"><i class="fa fa-plus"></i></button>
+                </div>
                 @include('layouts.partials.helper-error', ['field' => 'raca_id'])
             </div>
         </div>
 
         <div class="col-xs-12 col-sm-3 col-md-6 col-lg-6 col-xl-6">
-            <label for="pessoa_id" class="obrigatorio"> Proprietário</label>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-xl-10 padding-right-0">
-                        <div class="selectBox form-control no-radius-right {{ $errors->has('pessoa_id') ? 'is-invalid' : '' }}"
+            <label for="pessoa_id" class="control-label obrigatorio"> Proprietário</label>
+            <div class="form-group pessoa_id">
+                <div class="col-xs-9 col-sm-10 col-md-10 col-lg-10 col-xl-11">
+                    <div class="row">
+                        <div class="selectBox {{ $errors->has('pessoa_id') ? 'is-invalid' : '' }}"
                              id="pessoa_id"
                              data-selecteds="{{ empty($dados) ? old('pessoa_id') : $dados->pessoa_id }}"
                              data-value_id="id"
                              data-value_desc="nome"
                              data-data_source="{{ json_encode($pessoas) }}"></div>
                     </div>
-                    <div class="col-xl-1">
-                        <div class="row">
-                            <button class="btn btn-outline-secondary btn-plus-group" id="btn_add_pessoa" type="button"><i class="fa fa-plus"></i></button>
-                        </div>
-                    </div>
                 </div>
-
+                <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2 col-xl-1 no-padding">
+                    <button class="btn btn-default btn-block" id="btn_add_pessoa" type="button"><i class="fa fa-plus"></i></button>
+                </div>
                 @include('layouts.partials.helper-error', ['field' => 'pessoa_id'])
             </div>
         </div>
@@ -104,9 +98,12 @@
         <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 col-xl-2">
             <div class="form-group">
                 <label for="peso"> Peso</label>
-                <div class="textBox form-control {{ $errors->has('peso') ? 'is-invalid' : '' }}"
-                     data-value="{{ empty($dados) ? old('peso') : $dados->peso }}"
-                     id="peso"></div>
+                <div class="input-group">
+                    <div class="textBox form-control {{ $errors->has('peso') ? 'is-invalid' : '' }}"
+                         data-value="{{ empty($dados) ? old('peso') : $dados->peso }}"
+                         id="peso"></div>
+                    <div class="input-group-addon">Kg</div>
+                </div>
                 @include('layouts.partials.helper-error', ['field' => 'peso'])
             </div>
         </div>
@@ -187,33 +184,9 @@
         </div>
     </div>
 
-    <hr>
-    <legend>Informações para o site</legend>
-
-    <div class="form-group">
-        <label></label>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox"
-                       title="Este animal estará publicado no site"
-                       class="{{ $errors->has('eh_castrado') ? 'is-invalid' : '' }}"
-                       id="publicado"
-                       name="publicado" {{ empty($dados) ? '' : ($dados->publicado == 1 ? 'checked' : '')  }}> Publicado?
-            </label>
-        </div>
-        @include('layouts.partials.helper-error', ['field' => 'eh_castrado'])
-    </div>
-
-    <div class="form-group">
-        <label for="dados_adicionais" title="Informações adicionais que serão exibidas no site"> Dados Adicionais</label>
-        <textarea name="dados_adicionais" id="dados_adicionais" class="form-control {{ $errors->has('dados_adicionais') ? 'is-invalid' : '' }}"
-                  placeholder="Informações adicionais que serão exibidas no site"
-                  rows="3">{{ $dados->dados_adicionais or old('dados_adicionais') }}</textarea>
-        @include('layouts.partials.helper-error', ['field' => 'dados_adicionais'])
-    </div>
-
 @endsection
 
 @section('modals')
     @include('cadastros.raca-modal')
+    @include('cadastros.especie-modal')
 @endsection

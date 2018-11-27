@@ -4,8 +4,8 @@
     <div class="container">
         @include('layouts.partials.top-form')
 
-        <div class="card">
-            <div class="card-body">
+        <div class="panel panel-default">
+            <div class="panel-body">
 
                 <form action="{{ $route }}" method="post" id="{{ isset($form_id) ? $form_id : '' }}" enctype="multipart/form-data">
                     @include('layouts.partials.form-fields-safe')

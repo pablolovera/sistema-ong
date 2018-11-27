@@ -36,3 +36,7 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
 
 require_once 'site/index.php';
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

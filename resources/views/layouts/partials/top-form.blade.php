@@ -6,4 +6,3 @@
         <legend class="text-uppercase">{{ $title }}</legend>
     </div>
 </div>
-<hr>

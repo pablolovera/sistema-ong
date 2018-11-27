@@ -9,7 +9,7 @@
     </button>
 
     @if ( ! empty($route_cancel))
-        <a href="{{ $route_cancel }}" type="button" class="btn btn-secondary show-loader" title="Voltar"> <i class="fa fa-close"></i> <span class="hidden-xs">Cancelar</span> </a>
+        <a href="{{ $route_cancel }}" type="button" class="btn btn-default show-loader" title="Voltar"> <i class="fa fa-close"></i> <span class="hidden-xs">Cancelar</span> </a>
     @endif
 
     @if ( ! empty($route_delete))

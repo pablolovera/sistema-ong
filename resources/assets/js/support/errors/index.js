@@ -26,22 +26,22 @@ export default {
 
     let group = $('form').find('.validate-' + el)
     let input = $('form').find('.' + el)
-    input.addClass('is-invalid')
-    group.append('<div class="invalid-feedback"><small>' + message + '</small></div>')
+    input.addClass('has-error')
+    group.append('<div class="help-block"><small>' + message + '</small></div>')
   }
 }
 
 function clearValidationError() {
   let el_form = $('form')
-  el_form.find('.is-invalid').removeClass('is-invalid')
-  el_form.find('.invalid-feedback').remove()
+  el_form.find('.has-error').removeClass('has-error')
+  el_form.find('.help-block').remove()
 }
 
 function showValidation(error) {
   forEach(error.errors, (value, key) => {
     let group = $('form').find('.validate-' + key)
     let input = $('form').find('.' + key)
-    input.addClass('is-invalid')
-    group.append('<div class="invalid-feedback"><small>' + value[0] + '</small></div>')
+    input.addClass('has-error')
+    group.append('<div class="help-block"><small>' + value[0] + '</small></div>')
   })
 }

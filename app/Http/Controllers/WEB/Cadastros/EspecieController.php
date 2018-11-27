@@ -34,6 +34,14 @@ class EspecieController extends Controller
     }
 
     /**
+     * @return resource
+     */
+    public function selectData()
+    {
+        return response()->json(Especie::all());
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -60,6 +68,9 @@ class EspecieController extends Controller
         $dados->fill($request->all());
         $dados->empresa_id = auth()->user()->empresa_id;
         $dados->save();
+
+        if ( $request->ajax() )
+            return response()->json($dados);
 
         return redirect()->route('cadastros.especie.index');
     }

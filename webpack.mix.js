@@ -13,3 +13,6 @@ let mix = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css');
+
+mix.copyDirectory('./node_modules/devextreme/dist/css/icons', 'public/css/icons')
+mix.copy('./node_modules/jszip/dist/jszip.min.js', 'public/js/jszip.min.js')

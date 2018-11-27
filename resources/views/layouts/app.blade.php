@@ -18,77 +18,79 @@
 <div id="toast"></div>
 <div id="loadPanelContainer"></div>
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-default">
         <div class="container">
-            <a class="navbar-brand show-loader" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand show-loader" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+            </div>
 
-            <div class="collapse navbar-collapse justify-content-end" id="navbarColor02">
-                <ul class="navbar-nav mr-auto nav-ong">
-                    <li class="nav-item {{ Route::is('dashboard.*') ? 'active' : '' }}"><a href="{{ route('dashboard.index') }}" class="nav-link show-loader"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-                    <li class="nav-item dropdown {{ Route::is('cadastros.*') ? 'active' : '' }}">
-                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-file-text"></i> Cadastros
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a href="{{ route('cadastros.raca.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.raca.index') ? 'active' : '' }}">Raças</a>
-                            <a href="{{ route('cadastros.especie.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.especie.index') ? 'active' : '' }}">Espécies</a>
-                            <a href="{{ route('cadastros.animal.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.animal.index') ? 'active' : '' }}">Animais</a>
-                            <a href="{{ route('cadastros.pessoa.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.pessoa.index') ? 'active' : '' }}">Pessoas</a>
-                            <a href="{{ route('cadastros.lar-temporario.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.lar-temporario.index') ? 'active' : '' }}">Lar Temporário</a>
-                            <a href="{{ route('cadastros.usuario.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.usuario.index') ? 'active' : '' }}">Usuário</a>
-                        </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="{{ Route::is('dashboard.*') ? 'active' : '' }}"><a href="{{ route('dashboard.index') }}" class="show-loader"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+                    <li class="dropdown {{ Route::is('cadastros.*') ? 'active' : '' }}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-file-text"></i> Cadastros <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('cadastros.raca.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.raca.index') ? 'active' : '' }}">Raças</a></li>
+                            <li><a href="{{ route('cadastros.especie.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.especie.index') ? 'active' : '' }}">Espécies</a></li>
+                            <li><a href="{{ route('cadastros.animal.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.animal.index') ? 'active' : '' }}">Animais</a></li>
+                            <li><a href="{{ route('cadastros.pessoa.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.pessoa.index') ? 'active' : '' }}">Pessoas</a></li>
+                            <li><a href="{{ route('cadastros.lar-temporario.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.lar-temporario.index') ? 'active' : '' }}">Lar Temporário</a></li>
+                            <li><a href="{{ route('cadastros.usuario.index') }}" class="dropdown-item show-loader {{ Route::is('cadastros.usuario.index') ? 'active' : '' }}">Usuário</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item dropdown {{ Route::is('relatorios.*') ? 'active' : '' }}">
-                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-files-o"></i> Relatórios
+
+                    <li class="dropdown {{ Route::is('relatorios.*') ? 'active' : '' }}">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-files-o"></i> Relatórios <span class="caret"></span>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a href="{{ route('relatorios.animal.index') }}" class="dropdown-item show-loader {{ Route::is('relatorios.animal.*') ? 'active' : '' }}">Animais</a>
-                            <a href="{{ route('relatorios.lar-temporario.index') }}" class="dropdown-item show-loader {{ Route::is('relatorios.lar-temporario.*') ? 'active' : '' }}">Lares Temporários</a>
-                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('relatorios.animal.index') }}" class="dropdown-item show-loader {{ Route::is('relatorios.animal.*') ? 'active' : '' }}">Animais</a></li>
+                            <li><a href="{{ route('relatorios.lar-temporario.index') }}" class="dropdown-item show-loader {{ Route::is('relatorios.lar-temporario.*') ? 'active' : '' }}">Lares Temporários</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item dropdown {{ Route::is('site.*') ? 'active' : '' }}">
-                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-files-o"></i> Site
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a href="{{ route('site.animal.index') }}" class="dropdown-item show-loader {{ Route::is('site.animal.*') ? 'active' : '' }}">Animais</a>
-                            <a href="{{ route('site.moderacao-animal.index') }}" class="dropdown-item show-loader {{ Route::is('site.moderacao-animal.*') ? 'active' : '' }}">Moderação de Animais</a>
-                            <a href="{{ route('site.denuncia.index') }}" class="dropdown-item show-loader {{ Route::is('site.denuncia.*') ? 'active' : '' }}">Denúncias</a>
-                            <a href="{{ route('site.parceiro.index') }}" class="dropdown-item show-loader {{ Route::is('site.parceiro.*') ? 'active' : '' }}">Parceiros</a>
-                            <a href="{{ route('site.sobre-nos.index') }}" class="dropdown-item show-loader {{ Route::is('site.sobre-nos.*') ? 'active' : '' }}">Sobre Nós</a>
-                            <a href="{{ route('site.contato.index') }}" class="dropdown-item show-loader {{ Route::is('site.contato.*') ? 'active' : '' }}">Contato</a>
-                            <a href="{{ route('site.colaboracao.index') }}" class="dropdown-item show-loader {{ Route::is('site.colaboracao.*') ? 'active' : '' }}">Colaboração</a>
-                        </div>
-                    </li>
+                    {{--<li class="nav-item dropdown {{ Route::is('site.*') ? 'active' : '' }}">--}}
+                        {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">--}}
+                            {{--<i class="fa fa-files-o"></i> Site <span class="caret"></span>--}}
+                        {{--</a>--}}
+                        {{--<ul class="dropdown-menu">--}}
+                            {{--<li><a href="{{ route('site.animal.index') }}" class="dropdown-item show-loader {{ Route::is('site.animal.*') ? 'active' : '' }}">Animais</a></li>--}}
+                            {{--<li><a href="{{ route('site.moderacao-animal.index') }}" class="dropdown-item show-loader {{ Route::is('site.moderacao-animal.*') ? 'active' : '' }}">Moderação de Animais</a></li>--}}
+                            {{--<li><a href="{{ route('site.denuncia.index') }}" class="dropdown-item show-loader {{ Route::is('site.denuncia.*') ? 'active' : '' }}">Denúncias</a></li>--}}
+                            {{--<li><a href="{{ route('site.parceiro.index') }}" class="dropdown-item show-loader {{ Route::is('site.parceiro.*') ? 'active' : '' }}">Parceiros</a></li>--}}
+                            {{--<li><a href="{{ route('site.sobre-nos.index') }}" class="dropdown-item show-loader {{ Route::is('site.sobre-nos.*') ? 'active' : '' }}">Sobre Nós</a></li>--}}
+                            {{--<li><a href="{{ route('site.contato.index') }}" class="dropdown-item show-loader {{ Route::is('site.contato.*') ? 'active' : '' }}">Contato</a></li>--}}
+                            {{--<li><a href="{{ route('site.colaboracao.index') }}" class="dropdown-item show-loader {{ Route::is('site.colaboracao.*') ? 'active' : '' }}">Colaboração</a></li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->nome }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    Sair
+                                </a>
 
-                <ul class="navbar-nav pull-rigth nav-ong">
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->nome }}
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a href="{{ route('logout') }}" class="dropdown-item"
-                               onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                Sair
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
-                        </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
-
         </div>
     </nav>
 

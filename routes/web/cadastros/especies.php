@@ -16,6 +16,10 @@ $router->group(['prefix' => 'especies'], function () use ($router) {
         ->uses('EspecieController@datagrid')
         ->name('cadastros.especie.datagrid');
 
+    $router->get('select-data')
+        ->uses('EspecieController@selectData')
+        ->name('cadastros.especie.select-data');
+
     $router->get('create')
         ->uses('EspecieController@create')
         ->name('cadastros.especie.create');
